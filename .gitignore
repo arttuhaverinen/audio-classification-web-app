@@ -8,10 +8,6 @@ node_modules
 # testing
 /coverage
 
-# production
-/client
-client
-venv311
 
 # misc
 .DS_Store
@@ -28,4 +24,4 @@ yarn-error.log*
 /render
 /venv311
 
-//__pycache__
+__pycache__

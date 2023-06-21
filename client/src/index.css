@@ -1,0 +1,397 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(255, 255, 255);
+}
+
+html,
+body {
+  max-width: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+button {
+  cursor: pointer;
+}
+
+.div-grid {
+  display: grid;
+  width: 100%;
+  gap: 20px;
+  grid-template-columns: 70% 20%;
+  grid-template-rows: auto;
+  justify-content: center;
+
+  grid-template-areas:
+    "div-recording div-settings"
+    "div-upload-audio div-settings"
+    "div-youtube-upload div-settings"
+    "div-uploaded-sample div-uploaded-sample"
+    "div-separate div-separate"
+    "div-classification-results div-classification-results";
+}
+
+.container {
+  border-top: 20px solid white;
+  background-color: rgb(77, 92, 116);
+  background-color: rgb(250, 250, 250);
+  width: 80%;
+  padding-top: 20px;
+  min-height: 150vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-recording {
+  padding: 5px;
+  grid-area: div-recording;
+  background-color: gainsboro;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.div-recording h3 {
+  text-align: left;
+}
+
+#h3-recording-red {
+  color: rgb(210, 4, 45);
+}
+
+.div-recording-h1 {
+  width: max-content;
+  border-bottom: 2px solid gainsboro;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+.div-audioupload-h1 {
+  width: max-content;
+  border-bottom: 2px solid gainsboro;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+.div-youtubeupload-h1 {
+  width: max-content;
+  border-bottom: 2px solid gainsboro;
+  margin-bottom: 10px;
+  opacity: 0.5;
+}
+
+.div-recording-buttons {
+  display: flex;
+  width: 100%;
+  justify-items: center;
+  word-wrap: break-word;
+}
+
+.div-recording-buttons button {
+  margin: 2px;
+  padding: 1%;
+  min-width: 12.5%;
+}
+
+.div-recording-buttons button:disabled {
+  cursor: auto;
+}
+
+.div-recording-buttons audio {
+  width: 50%;
+}
+
+.div-upload-audio {
+  grid-area: div-upload-audio;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  width: 100%;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.div-upload-audio button {
+}
+
+#input-audioupload {
+  color: red;
+}
+.form-upload-audio {
+  width: 100%;
+  display: flex;
+  justify-content: stretch;
+  background-color: gainsboro;
+  background-color: white;
+  border-radius: 5px;
+}
+.form-upload-audio button {
+  min-width: 12.5%;
+  padding: 1%;
+  margin: 0;
+  margin-left: 2px;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.form-upload-audio button:disabled {
+  background-color: #f0f0f0;
+  cursor: auto;
+  border: 1px solid gainsboro;
+}
+
+.form-upload-audio label {
+  min-width: 10%;
+  cursor: pointer;
+  margin-right: 2px;
+  padding: 1%;
+  border: 1px solid black;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+}
+
+.div-youtube-upload {
+  padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.div-youtube-upload div {
+  width: 100%;
+  display: flex;
+  color: red;
+}
+
+.div-youtube-upload button {
+  min-width: 12.5%;
+}
+
+#input-youtubetext {
+  width: 87.5%;
+  /*padding: 12px 20px;*/
+  padding: 2% 2%;
+  box-sizing: border-box;
+  margin-right: 0.5%;
+}
+
+.div-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  grid-area: div-settings;
+  background-color: red;
+  width: 100%;
+  border-radius: 5px;
+  background-color: gainsboro;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.div-settings form div {
+  display: flex;
+  padding: 2px;
+  margin-left: 2px;
+}
+
+.div-settings form div input {
+  width: 7.5%;
+}
+
+.div-settings form label {
+  margin-left: 5px;
+}
+.div-settings hr {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.csv-download {
+  margin-top: 1%;
+  background-color: #f0f0f0; /* Green */
+  border: 1px solid black;
+  color: black;
+  padding: 1% 2%;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.div-separate {
+  grid-area: div-separate;
+  margin-left: -20%;
+  margin-right: -50%;
+  padding: 20px;
+  background-color: white;
+}
+
+.div-classification-results {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0%;
+  grid-area: div-classification-results;
+}
+
+.div-classification-results-small {
+  margin-top: 5%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 0%;
+  border-top: 20px solid white;
+  grid-area: div-classification-results;
+}
+
+.div-chart {
+  width: 100%;
+}
+
+.card {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 40%;
+  background-color: gainsboro;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-small {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  margin-right: 2%;
+  width: 20%;
+  background-color: gainsboro;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.card-header {
+  width: 90%;
+  padding: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
+.card button {
+  width: 30%;
+}
+
+.card-numbers {
+  text-align: left;
+  margin-left: 5%;
+  margin-bottom: 1%;
+}
+
+.div-uploaded-sample {
+  text-align: center;
+  vertical-align: middle;
+  grid-area: div-uploaded-sample;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  background-color: gainsboro;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+.div-uploaded-sample-hidden {
+  text-align: center;
+  vertical-align: middle;
+  grid-area: div-uploaded-sample;
+  width: 100%;
+  visibility: hidden;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: gainsboro;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+@media only screen and (max-width: 600px) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .container {
+    width: 95%;
+    align-items: center;
+  }
+
+  .div-recording {
+    width: 100%;
+  }
+  .div-recording-buttons audio {
+    width: 30%;
+  }
+
+  .div-uploaded-sample {
+    width: 100%;
+  }
+  .form-upload-audio {
+    width: 100%;
+  }
+  .div-youtube-upload {
+    width: 100%;
+  }
+  .card {
+    width: 100%;
+  }
+  .div-grid {
+    display: grid;
+    width: 95%;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 100%;
+    align-items: center;
+    grid-template-areas:
+      "div-recording"
+      "div-upload-audio"
+      "div-youtube-upload"
+      "div-uploaded-sample"
+      "div-separate"
+      "div-classification-results"
+      "div-settings";
+  }
+}

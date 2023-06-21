@@ -1,89 +1,103 @@
-# Project Title
+# Web application for testing audio classification models
 
-One Paragraph of project description goes here
+- This application combines React frontend, Flask backend and Torch machine learning.
 
-## Getting Started
+- Record or upload your own audio files.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+- Convolutional neural networks will process and classify your files. You will a receive visual representation of the results.
 
-### Prerequisites
+- Machine learning happens completely on server side, which makes this application's frontend very light to use.
 
-What things you need to install the software and how to install them
+<span style="color:yellow">Live version: https://cnn-audio.herokuapp.com
+</span>
 
-```
-Give examples
-```
+- Live version includes only 2 of the 4 CNN models and cpu-only version of torch due to memory and storage limitations.
 
-## Other
+# Prerequisites
 
-### Installing
+- Node.js
+- npm
+- Python version (3.11.4 or higher)
 
-A step by step series of examples that tell you how to get a development env running
+# Getting Started
 
-Say what the step will be
+1. clone the repo
 
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+```sh
+git clone https://github.com/arttuhaverinen/audio-classification-web-app.git
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+2. Install Python packages
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
+```sh
+pip install -r requirements.txt
 ```
 
-### And coding style tests
+3. Install NPM packages
 
-Explain what these tests test and why
-
+```sh
+cd client
+npm install
 ```
-Give an example
+
+4. Run application
+
+- Frontend
+
+```sh
+cd client
+npm start
 ```
 
-## Deployment
+- Backend
+  - Run app.py
 
-Add additional notes about how to deploy this on a live system
+5. Creating production build (if needed)
 
-## Built With
+```sh
+cd client
+npm run build
+```
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+# Usage
 
-## Contributing
+- User can upload audio in the following ways:
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+  - Record your voice with your microphone
+  - Upload wav or mp3 files from your device
+  - Paste a youtube url
 
-## Versioning
+- Upload audio to the backend where it will be processed and analyzed
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+  - There is no limit in how long the audio files can be, but processing files longer than 1 minute might take some time.
 
-## Authors
+- Displays user's classification results using charts
 
-- **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+# Possible improvements
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- Multiple file upload
+- Download CSV-file from your results
+- Customize which CNNs to use
+- Increase UI customization
 
-## License
+## Languages & Libraries
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+Languages
 
-## Acknowledgments
+- JavaScript
+- Python
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+Libraries:
+
+- React
+- Flask
+- Torch, TorchAudio, TorchVision
+
+## Additional information
+
+The following code was used to train the models:
+https://github.com/arttuhaverinen/torch-cnn-audio-classification
+
+## Contact
+
+haverinen994@gmail.com
