@@ -19,7 +19,7 @@ import time
 # FUNCTIONS
 
 #app = Flask(__name__)
-app = Flask(__name__, static_folder="build", static_url_path="/")
+app = Flask(__name__, static_folder="build", static_url_path="/audioapp/")
 CORS(app)
 
 app.config['DEBUG'] = True
@@ -38,8 +38,8 @@ def mem():
 @app.route("/")
 @cross_origin()
 def serve():
-  #return send_from_directory(app.static_folder, "index.html")
-  return app.send_static_file("index.html")
+  return send_from_directory(app.static_folder, "index.html")
+  #return app.send_static_file("index.html")
   
 
 # For recorded audio
