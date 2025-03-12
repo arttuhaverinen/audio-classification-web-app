@@ -16,13 +16,28 @@ from pathlib import Path
 import psutil
 import time
 
+
+
+
+
+
 # FUNCTIONS
 
 #app = Flask(__name__)
-app = Flask(__name__, static_folder="build", static_url_path="/audioapp/")
+app = Flask(__name__, static_folder="build", static_url_path="/")
 CORS(app)
+app.config['MAX_CONTENT_LENGTH'] = 5 * 1000 * 1000
 
-app.config['DEBUG'] = True
+app.config['DEBUG'] = False
+
+@app.errorhandler(500)
+def page_not_found(e):
+    print("error handler ---------------------------------------------")
+    #print(dir(e))
+    users = [{'id': 1, 'username': 'Alice'}, {'id': 2, 'username': 'Bob'}]
+    return jsonify(users, status=413, mimetype='application/json')
+    #return jsonify("error": "Uploaded file was too large. Maximum file size is 5MB.")
+
 
 @app.route("/mem", methods=["GET"])
 def mem():
@@ -114,11 +129,14 @@ def test_post():
 @app.route("/wav", methods=["POST"])
 @cross_origin()
 def wav():
+  print("wav -----------------------------")
   try:
     blob = request.data
 
+    print("splitting -----------------------------")
     f = request.files["file"]
     filetype = f.filename.split('.')[-1]
+    print("splitting succeeded -----------------------------")
 
     if filetype == "mp3":
       print("mp3 file type")
@@ -129,15 +147,20 @@ def wav():
     if filetype == "wav":
       f.save(os.path.join("saved_audio", secure_filename("file.wav")))
 
+    print("audiosegment")
     myaudio = AudioSegment.from_file(os.path.join("saved_audio","file.wav") , "wav") 
     split_wav_file(myaudio, 2000)
+    print("using model -----------------------------")
 
     values = use_model()
+    print("using model succeeded -----------------------------")
+
 
     data = {"values": values}
     
     delete_files()
-
+    print("returning data -----------------------------")
+    print("data", data)
     return jsonify(data)
   except Exception:
     print(Exception)

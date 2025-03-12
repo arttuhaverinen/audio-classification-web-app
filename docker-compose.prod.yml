@@ -1,0 +1,22 @@
+services:
+  audio-flask-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_ENV=production
+  audio-react-frontend:
+    environment:
+      - REACT_APP_ENV=production
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
+    ports:
+      - "4000:3000"
+    volumes:
+      - ./client:/app
+    command: npm start
